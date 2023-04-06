@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel'
 import PrimaryButton from '@/Components/PrimaryButton'
 import SingleChoice from '@/Components/SingleChoice'
 import TextInput from '@/Components/TextInput'
+import AllQuestionsForm from './Partials/AllQuestionsForm'
 import { Head, Link, useForm } from '@inertiajs/react'
 
 export default function Show({ auth, form }) {
@@ -17,7 +18,7 @@ export default function Show({ auth, form }) {
     const submit = (e) => {
         e.preventDefault()
 
-        post(route('form.store'))
+        post(route('question.store'))
     }
 
     return (
@@ -90,6 +91,10 @@ export default function Show({ auth, form }) {
                                 </PrimaryButton>
                             </div>
                         </form>
+                    </div>
+
+                    <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                        <AllQuestionsForm className="max-w-xl" />
                     </div>
                 </div>
             </div>

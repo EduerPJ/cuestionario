@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Form extends Model
+class Question extends Model
 {
     use HasFactory;
+
 
         /**
      * The attributes that are mass assignable.
@@ -16,16 +17,11 @@ class Form extends Model
      */
     protected $fillable = [
         'title',
-        'description',
+        'type',
     ];
 
-    public function user(): BelongsTo
+    public function form(): BelongsTo
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function questions(): HasMany
-    {
-        return $this->hasMany(Question::class);
+        return $this->belongsTo(Form::class);
     }
 }

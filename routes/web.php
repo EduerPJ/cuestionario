@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -41,6 +42,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/form/create', [FormController::class, 'store'])->name('form.store');
     Route::patch('/form', [FormController::class, 'update'])->name('form.update');
     Route::delete('/form', [FormController::class, 'destroy'])->name('form.destroy');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/question/{id}/show', [QuestionController::class, 'show'])->name('question.show');
+    Route::get('/question/create', [QuestionController::class, 'create'])->name('question.create');
+    Route::post('/question/create', [QuestionController::class, 'store'])->name('question.store');
+    Route::patch('/question', [QuestionController::class, 'update'])->name('question.update');
+    Route::delete('/question', [QuestionController::class, 'destroy'])->name('question.destroy');
 });
 
 require __DIR__.'/auth.php';
