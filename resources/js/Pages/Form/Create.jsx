@@ -17,8 +17,6 @@ export default function Create({ auth }) {
         post(route('form.store'))
     }
 
-    <pre> {JSON.stringify(data, null, 2)} </pre>
-
     return (
         <FormLayout
             user={auth.user}
