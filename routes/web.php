@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/question/{id}/show', [QuestionController::class, 'show'])->name('question.show');
+    Route::get('/question', [QuestionController::class, 'index'])->name('question.index');
     Route::get('/question/create', [QuestionController::class, 'create'])->name('question.create');
     Route::post('/question/create', [QuestionController::class, 'store'])->name('question.store');
     Route::patch('/question', [QuestionController::class, 'update'])->name('question.update');
