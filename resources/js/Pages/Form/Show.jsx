@@ -7,7 +7,7 @@ import SingleChoice from '@/Components/SingleChoice'
 import TextInput from '@/Components/TextInput'
 import { Head, Link, useForm } from '@inertiajs/react'
 
-export default function Show() {
+export default function Show({ auth }) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         type: 'text',
@@ -22,7 +22,7 @@ export default function Show() {
 
     return (
         <FormLayout
-            user={{ name: 'Eduer' }}
+            user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">Add questions</h2>
             }

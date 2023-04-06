@@ -11,16 +11,17 @@ export default function Create({ auth }) {
         description: '',
     })
 
-
     const submit = (e) => {
         e.preventDefault()
 
         post(route('form.store'))
     }
 
+    <pre> {JSON.stringify(data, null, 2)} </pre>
+
     return (
         <FormLayout
-            user={{name: 'Eduer'}}
+            user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">Create Form</h2>
             }
