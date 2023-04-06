@@ -8,12 +8,12 @@ import TextInput from '@/Components/TextInput'
 import AllQuestionsForm from './Partials/AllQuestionsForm'
 import { Head, Link, useForm } from '@inertiajs/react'
 
-export default function Show({ auth, form }) {
+export default function Show({ auth, form, questions }) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         type: 'text',
     })
-    const [questions, setQuestions] = useState([])
+    // const [questions, setQuestions] = useState([])
 
     const submit = (e) => {
         e.preventDefault()
@@ -94,7 +94,7 @@ export default function Show({ auth, form }) {
                     </div>
 
                     <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                        <AllQuestionsForm className="max-w-xl" />
+                        <AllQuestionsForm questions={questions} className="max-w-xl" />
                     </div>
                 </div>
             </div>

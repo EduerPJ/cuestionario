@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Form;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -46,7 +47,11 @@ class FormController extends Controller
      */
     public function show(Form $id)
     {
-        return Inertia::render('Form/Show', ['form' => Form::find($id)[0]]);
+        return Inertia::render(
+            'Form/Show',
+            ['form' => Form::find($id)[0],
+            'questions' => Question::all()]
+        );
     }
 
     /**
