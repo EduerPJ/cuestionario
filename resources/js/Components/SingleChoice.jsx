@@ -9,7 +9,7 @@ const SingleChoice = ({ options, name, label, onChange }) => {
 
     return (
         <div>
-            <label for={name}>{label}</label>
+            <label htmlFor={name}>{label}</label>
             <select
                 onChange={onChange}
                 name={name}
