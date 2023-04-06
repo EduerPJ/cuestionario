@@ -13,9 +13,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Form/AllForms', [
-            'forms' => Form::all(),
-        ]);
+        return Inertia::render('Form/AllForms', ['forms' => Form::all()]);
     }
 
     /**
@@ -46,9 +44,9 @@ class FormController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Form $form)
+    public function show(Form $id)
     {
-        return Inertia::render('Form/Show');
+        return Inertia::render('Form/Show', ['form' => Form::find($id)[0]]);
     }
 
     /**

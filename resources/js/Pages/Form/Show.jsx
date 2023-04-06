@@ -7,7 +7,7 @@ import SingleChoice from '@/Components/SingleChoice'
 import TextInput from '@/Components/TextInput'
 import { Head, Link, useForm } from '@inertiajs/react'
 
-export default function Show({ auth }) {
+export default function Show({ auth, form }) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         type: 'text',
@@ -31,10 +31,13 @@ export default function Show({ auth }) {
             <div className="py-12">
                 <div className="max-w-4xl mx-auto sm:px-6 lg:px-8 space-y-6">
                     <div className="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
+                        <div className="mb-6">
+                            <h1>
+                                Add questions to the form: <strong>{form.title}</strong>
+                            </h1>
+                            <p>{form.description}</p>
+                        </div>
                         <form onSubmit={submit}>
-                            <div>
-                                <h1>Add questions to the form</h1>
-                            </div>
                             <div>
                                 <InputLabel htmlFor="title" value="Title" />
 
