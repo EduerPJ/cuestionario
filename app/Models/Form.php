@@ -19,7 +19,7 @@ class Form extends Model
         'description',
     ];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
