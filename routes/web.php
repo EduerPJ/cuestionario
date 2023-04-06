@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/form', [FormController::class, 'index'])->name('form.index');
-    Route::get('/form/{id}/show', [FormController::class, 'show'])->name('form.show');
+    Route::get('/form/{form}/show', [FormController::class, 'show'])->name('form.show');
     Route::get('/form/create', [FormController::class, 'create'])->name('form.create');
     Route::post('/form/create', [FormController::class, 'store'])->name('form.store');
     Route::patch('/form', [FormController::class, 'update'])->name('form.update');

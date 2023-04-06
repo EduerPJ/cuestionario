@@ -12,9 +12,9 @@ export default function Show({ auth, form, questions }) {
     const { data, setData, post, processing, errors } = useForm({
         title: '',
         type: 'text',
+        formId: form.id,
     })
     // const [questions, setQuestions] = useState([])
-    setData('formId', form.id)
 
     const submit = (e) => {
         e.preventDefault()

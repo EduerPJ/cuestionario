@@ -36,25 +36,27 @@ class FormController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'string|max:255',
-            'user_id' => auth()->user()->id
         ]);
 
         $form = Form::create([
             'title' => $request->title,
             'description' => $request->description,
+            'user_id' => auth()->user()->id
         ]);
-        return redirect()->route('form.show', ['id' => $form->id]);
+        return redirect()->route('form.show', ['form' => $form->id]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Form $id)
+    public function show(Form $form)
     {
         return Inertia::render(
             'Form/Show',
-            ['form' => Form::find($id)[0],
-            'questions' => Question::all()]
+            [
+                'form' => Form::find($form->id),
+                'questions' => Question::where('form_id', $form->id)->get(),
+            ]
         );
     }
 
