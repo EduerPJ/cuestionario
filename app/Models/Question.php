@@ -18,6 +18,7 @@ class Question extends Model
     protected $fillable = [
         'title',
         'type',
+        'form_id',
     ];
 
     public function form(): BelongsTo

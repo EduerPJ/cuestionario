@@ -14,7 +14,10 @@ class FormController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Form/AllForms', ['forms' => Form::all()]);
+        return Inertia::render(
+            'Form/AllForms',
+            ['forms' => Form::where('user_id', auth()->user()->id)->get()]
+        );
     }
 
     /**
@@ -33,6 +36,7 @@ class FormController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'string|max:255',
+            'user_id' => auth()->user()->id
         ]);
 
         $form = Form::create([

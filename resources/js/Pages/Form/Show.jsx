@@ -14,6 +14,7 @@ export default function Show({ auth, form, questions }) {
         type: 'text',
     })
     // const [questions, setQuestions] = useState([])
+    setData('formId', form.id)
 
     const submit = (e) => {
         e.preventDefault()

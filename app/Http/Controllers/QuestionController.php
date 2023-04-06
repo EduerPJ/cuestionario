@@ -36,6 +36,7 @@ class QuestionController extends Controller
         Question::create([
             'title' => $request->title,
             'type' => $request->type,
+            'form_id' => $request->formId,
         ]);
     }
 

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('type');
+            $table->unsignedBigInteger('form_id');
             $table->timestamps();
+            $table->foreign('form_id')->references('id')->on('forms')->onDelete('cascade');
         });
     }
 
