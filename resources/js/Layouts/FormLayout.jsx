@@ -5,7 +5,7 @@ import NavLink from '@/Components/NavLink'
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink'
 import { Link } from '@inertiajs/react'
 
-export default function Authenticated({ user, header, children }) {
+export default function FormLayout({ user, header, children }) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false)
 
     return (
@@ -22,10 +22,10 @@ export default function Authenticated({ user, header, children }) {
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink
-                                    href={route('dashboard')}
-                                    active={route().current('dashboard')}
+                                    href={route('form.index')}
+                                    active={route().current('form.index')}
                                 >
-                                    Dashboard
+                                    Forms
                                 </NavLink>
                             </div>
                         </div>
