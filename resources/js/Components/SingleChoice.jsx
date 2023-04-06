@@ -10,7 +10,14 @@ const SingleChoice = ({ options, name, label, onChange }) => {
     return (
         <div>
             <label for={name}>{label}</label>
-            <select onChange={onChange} name={name} id={name}>
+            <select
+                onChange={onChange}
+                name={name}
+                id={name}
+                className={
+                    'border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm'
+                }
+            >
                 {optionTemplate}
             </select>
         </div>
